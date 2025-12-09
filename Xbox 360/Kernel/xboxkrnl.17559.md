@@ -1,22 +1,21 @@
-# Syscalls (dumped from searching 38 00 ?? ?? 44 00 00 02)
+## Syscalls (dumped from searching 38 00 ?? ?? 44 00 00 02)
 | Dec      | Hex      | Address      | Name                                 | Notes                                                        |
 |----------|----------|--------------|--------------------------------------|--------------------------------------------------------------|
-| 65535    | 0xFFFF   | 0x80076E74   |     sub_80076E74                     |                                                              |
-| 65535    | 0xFFFF   | 0x80076E80   |     sub_80076E80                     |                                                              |
+| 65535    | 0xFFFF   | 0x80076E74   |     ZwRaiseException                 |                                                              |
+| 65535    | 0xFFFF   | 0x80076E80   |     ZwRestoreContext                 |                                                              |
 | 65535    | 0xFFFF   | 0x80076E94   |     RtlCaptureContext                |                                                              |
 | 000      | 0x0000   | 0x801083F0   |     HvxGetVersions                   |                                                              |
-| 001      | 0x0001   | 0x80077050   |     sub_80077050                     |                                                              |
+| 001      | 0x0001   | 0x80077050   |     HvxStartupProcessors             |                                                              |
 | 002      | 0x0002   | 0x80070F78   |     HvxQuiesceProcessor              |                                                              |
 | 003      | 0x0003   | 0x80073900   |     KeFlushCurrentEntireTb           |                                                              |
-| 004      | 0x0004   | 0x8007390C   |     sub_8007390C                     |                                                              |
-| 004      | 0x0004   | 0x8007866C   |     sub_80078638                     |                                                              |
-| 005      | 0x0005   | 0x800786F0   |     sub_800786CC                     |                                                              |
+| 004      | 0x0004   | 0x8007390C   |     KeFlushCurrentSingleTb           |                                                              |
+| 005      | 0x0005   | 0x800786F0   |     KiRelocatePage                   | This is a reference within the function 'KiRelocatePage'     |
 | 006      | 0x0006   | 0x800734C0   |     KeGetSpecialPurposeRegister      |                                                              |
 | 007      | 0x0007   | 0x800734CC   |     KeSetSpecialPurposeRegister      |                                                              |
 | 008      | 0x0008   | 0x800734D8   |     KeGetSocRegister                 |                                                              |
-| 008      | 0x0008   | 0x80071B78   |     sub_80071B78                     |                                                              |
+| 008      | 0x0008   | 0x80071B78   |     HvxGetSocRegister                |                                                              |
 | 009      | 0x0009   | 0x800734E4   |     KeSetSocRegister                 |                                                              |
-| 009      | 0x0009   | 0x80071B88   |     sub_80071B88                     |                                                              |
+| 009      | 0x0009   | 0x80071B88   |     HvxSetSocRegister                |                                                              |
 | 010      | 0x000A   | 0x80077060   |     sub_80077060                     |                                                              |
 | 011      | 0x000B   | 0x800734A8   |     KeZeroPage                       |                                                              |
 | 012      | 0x000C   | 0x8007F968   |     sub_8007F968                     |                                                              |
@@ -44,7 +43,7 @@
 | 033      | 0x0021   | 0x80072910   |     HvxFlushUserModeTb               |                                                              |
 | 034      | 0x0022   | 0x80070F88   |     HvxSetPowerMode                  |                                                              |
 | 036      | 0x0024   | 0x80070F98   |     HvxBlowFuses                     |                                                              |
-| 037      | 0x0025   | 0x800692D0   |     sub_800692D0                     |                                                              |
+| 037      | 0x0025   | 0x800692D0   |     HvxFsbInterrupt                  |                                                              |
 | 038      | 0x0026   | 0x80071B98   |     HvxLockL2                        |                                                              |
 | 039      | 0x0027   | 0x8009EB38   |     sub_8009EB38                     |                                                              |
 | 040      | 0x0028   | 0x8009EB48   |     sub_8009EB48                     |                                                              |
@@ -119,13 +118,13 @@
 | 109      | 0x006D   | 0x8006FCA8   |     sub_8006FCA8                     |                                                              |
 | 110      | 0x006E   | 0x8006FCB8   |     sub_8006FCB8                     |                                                              |
 | 113      | 0x0071   | 0x80066760   |     HvxImageShim                     |                                                              |
-| 114      | 0x0072   | 0x80066450   |     sub_80066450                     |                                                              |
+| 114      | 0x0072   | 0x80066450   |     HvxExpansionInstall              |unsigned int __cdecl HvxExpansionInstall(unsigned int PhysicalAddress, unsigned int CodeSize);|
 | 116      | 0x0074   | 0x8009EC08   |     sub_8009EC08                     |                                                              |
 | 117      | 0x0075   | 0x80108680   |     sub_80108680                     |                                                              |
 | 118      | 0x0076   | 0x8009EC18   |     sub_8009EC18                     |                                                              |
 
 
-# Exports
+## Exports
 | Ordinal      | Hex      | Address      | Name                                 | Notes                                                        |
 |--------------|----------|--------------|--------------------------------------|--------------------------------------------------------------|
 001 | 0x0001 | 0x80085EA0 | DbgBreakPoint | |
